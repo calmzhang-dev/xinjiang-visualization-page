@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>一站式学生社区(公寓) 服务平台</title><link rel="icon" sizes="any" href="./static/img/logo.png"><!--引入公共组件--><link rel="stylesheet" href="static/css/style.css"><link rel="stylesheet" href="static/scss/index.css"><link rel="stylesheet" href="static/scss/index-main.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js" integrity="sha512-EmNxF3E6bM0Xg1zvmkeYD3HDBeGxtsG92IxFt1myNZhXdCav9MzvuH/zNMBU1DmIPN6njrhX1VTbqdJxQ2wHDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script></head><body><div id="app"><div class="container"><!-- 顶部导航 --><div class="top-nav"><div class="left"><a class="nav-btn btn-active" onclick="toggleActive(this,0)" href="./index.html">综合总览</a> <a class="nav-btn" onclick="toggleActive(this,1)" href="./floor.html">楼层分布</a><div class="nav-btn" onclick="toggleActive(this,2)">学生党员</div><div class="nav-btn" onclick="toggleActive(this)">楼委会信息</div></div><div class="center"><div class="logo-wrapper"><img src="./static/img/logo.png" alt=""></div><span>一站式学生社区（公寓）服务平台</span></div><div class="right"><div class="nav-btn" onclick="toggleActive(this,3)">入住导师</div><a class="nav-btn" onclick="toggleActive(this,4)" href="./table.html">公寓红黑榜</a><div class="nav-btn" onclick="toggleActive(this,5)">请假信息</div></div></div><!-- 大屏区域 --><div class="bottom-content"><!-- 左侧 --><div class="left"><div class="one"><div class="video-wrapper"><div class="banner">石河子大学南区11号楼男生</div><!-- 图片 --> <img src="./static/img/logo.png" alt=""><!-- 视频 --><!-- <video id="videoPlayer" controls>
+								<source src="./static/video/e209aea8bb68c6b68b697036ecae2e3e.mp4" type="video/mp4">
+							</video> --><!-- <button id="playButton" class="play-button">
+								<img src="./static/img/播放.png" alt="">
+							</button>
+							<button id="stopButton" class="stop-button">停止</button> --></div><div class="bottom-present"><div class="wr one-wr"><div class="item" style="width:43%"><div class="title">建立年限：</div><div class="content">2015年</div></div><div class="item" style="width:50%"><div class="title">结构：</div><div class="content">精钢混凝土结构</div></div></div><div class="wr two-wr"><div class="item"><div class="title">功能性用房数量：</div><div class="content">28个</div></div><div class="item"><div class="title">民汉混住：</div><div class="content">56间</div></div><div class="item"><div class="title">党员宿舍：</div><div class="content">23间</div></div></div></div></div><div class="two"><div class="title-icon"><div class="bgc">入住学院人数统计</div><img src="./static/img/斜坡.png" alt=""></div><div class="echarts-wrapper" id="echarts-one" style="display:none"></div><div class="echarts-wrapper" id="echarts-one-2"></div></div></div><!-- 中间 --><div class="center"><div class="one"><div class="Lights-wraper"><div class="Lights1 flex-1 mr-2"><div class="group1"><span>150</span> <span>间</span></div><div class="group2">房间数</div></div><div class="Lights1 flex-1 mr-2"><div class="group1"><span>20</span> <span>间</span></div><div class="group2">空房间数</div></div><div class="Lights2 flex-1 mr-2"><div class="group1"><span>88</span> <span>间</span></div><div class="group2">公寓数</div></div><div class="Lights2 flex-1"><div class="group1"><span>427</span> <span>人</span></div><div class="group2">入住人数</div></div></div><div class="card-mini"><div class="title-icon"><div class="bgc">床位使用率</div><img src="./static/img/斜坡.png" alt=""></div><div class="title-nav"><div><span>床位总数</span> <span>2800</span> <span>个</span></div><div><span>使用床位</span> <span>2350</span> <span>个</span></div></div><div class="echarts-wrapper h-3" id="echarts-two"></div></div></div><div class="two"><div class="title-icon"><div class="bgc">学生党员占比</div><img src="./static/img/斜坡.png" alt=""></div><div class="echarts-wrapper" style="display:flex"><div style="width:70%" id="echarts-three"></div><div class="my-label"><div class="item"><span>学生总人数：<span style="font-weight:700"> 6467</span>人</span></div><div class="item"><span class="mini-block" style="background-color:#ea00ff"></span> <span>党员人数：<span class="weight" style="color:#ea00ff"> 5731</span>人</span></div><div class="item"><span class="mini-block" style="background-color:#36de3e"></span> <span>未入党人数：<span class="weight" style="color:#36de3e"> 5731</span>人</span></div></div></div></div></div><!-- 右侧 --><div class="right"><div class="one"><div class="title-icon"><div class="bgc">各名族人数统计</div><img src="./static/img/斜坡.png" alt=""></div><div class="echarts-wrapper"><div style="width:100%;height:70%;margin-bottom:1.042vw" id="echarts-four"></div><div style="width:100%;height:30%"><div class="my-label-4"><div class="item"><span class="mini-block" style="background-color:#f7601d"></span> <span>回族：<span class="weight" style="color:#f7601d">6467</span>人</span></div><div class="item"><span class="mini-block" style="background-color:#7e53f7"></span> <span>维吾尔族：<span class="weight" style="color:#7e53f7">5731</span>人</span></div><div class="item"><span class="mini-block" style="background-color:#fff09f"></span> <span>藏族：<span class="weight" style="color:#fff09f">5731</span>人</span></div><div class="item"><span class="mini-block" style="background-color:#11ad0a"></span> <span>乌兹别克：<span class="weight" style="color:#11ad0a">5731</span>人</span></div><div class="item"><span class="mini-block" style="background-color:#9fd3ff"></span> <span>汉族：<span class="weight" style="color:#9fd3ff">5731</span>人</span></div><div class="item"><span class="mini-block" style="background-color:#cf32d5"></span> <span>哈萨克族：<span class="weight" style="color:#cf32d5">5731</span>人</span></div></div></div></div></div><div class="two"><div class="title-icon"><div class="bgc">入住年级统计</div><img src="./static/img/斜坡.png" alt=""></div><div class="echarts-wrapper"><div style="width:80%;height:100%" id="echarts-five"></div><div class="my-label" style="right:0;top:50%;transform:translateY(-50%)"><div class="item r"><span class="mini-block" style="background-color:#f7601d"></span> <span>2018级：<span class="weight" style="color:#f7601d">6467</span>人</span></div><div class="item r"><span class="mini-block" style="background-color:#7e53f7"></span> <span>2019级：<span class="weight" style="color:#7e53f7">5731</span>人</span></div><div class="item r"><span class="mini-block" style="background-color:#fff09f"></span> <span>2020级：<span class="weight" style="color:#fff09f">5731</span>人</span></div><div class="item r"><span class="mini-block" style="background-color:#9fd3ff"></span> <span>2021级：<span class="weight" style="color:#9fd3ff">5731</span>人</span></div></div></div></div></div></div></div></div></body><script src="https://cdn.jsdelivr.net/npm/console-ban@5.0.0/dist/console-ban.min.js"></script><script>ConsoleBan.init(),ConsoleBan.init({redirect:"https://juejin.cn/user/4380097024360877"}),document.onkeydown=function(n){if(123===n.keyCode)return!1},document.addEventListener("contextmenu",function(n){n.preventDefault()})</script><script>// 根据不同的屏幕宽度换算字体大小
+	function transformFontSize(fontsize) {
+		// 获取屏幕宽度
+		const width = window.innerWidth
+		const ratio = width / 1920
+		// 取下整
+		return parseInt(fontsize * ratio)
+	}</script><script src="./static/echarts/echarts-one.js"></script><script src="./static/echarts/echarts-one-2.js"></script><script src="./static/echarts/echarts-two.js"></script><script src="./static/echarts/echarts-three.js"></script><script src="./static/echarts/echarts-four.js"></script><script src="./static/echarts/echarts-five.js"></script><script>// 首页导航点击事件
+	function toggleActive(element, btnIndex) {
+		const navBtns = document.querySelectorAll('.nav-btn');
+		navBtns.forEach(btn => {
+			if (btn === element) {
+				btn.classList.add('btn-active');
+			} else {
+				btn.classList.remove('btn-active');
+			}
+		});
+	}
+
+	// 视频播放按钮
+	// const videoPlayer = document.getElementById('videoPlayer');
+	// const playButton = document.getElementById('playButton');
+
+	// playButton.addEventListener('click', () => {
+	// 	videoPlayer.play();
+	// 	playButton.style.display = 'none'; // 隐藏播放按钮
+	// });
+
+	// videoPlayer.addEventListener('click', () => {
+	// 	if (videoPlayer.paused) {
+	// 		videoPlayer.play();
+	// 	} else {
+	// 		videoPlayer.pause();
+	// 	}
+	// });
+
+	// videoPlayer.addEventListener('pause', () => {
+	// 	playButton.style.display = 'block'; // 显示播放按钮
+	// });
+
+	// videoPlayer.addEventListener('play', () => {
+	// 	playButton.style.display = 'none'; // 隐藏播放按钮
+	// });
+
+	// videoPlayer.addEventListener('ended', () => {
+	// 	playButton.style.display = 'block'; // 显示播放按钮
+	// });</script></html>

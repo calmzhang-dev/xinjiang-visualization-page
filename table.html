@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>一站式学生社区(公寓) 服务平台</title><link rel="icon" sizes="any" href="./static/img/logo.png"><!--引入公共组件--><link rel="stylesheet" href="static/css/style.css"><link rel="stylesheet" href="static/scss/index.css"><link rel="stylesheet" href="static/scss/table-main.css"></head><body><div id="app"><div class="container"><!-- 顶部导航 --><div class="top-nav"><div class="left"><a class="nav-btn" onclick="toggleActive(this,0)" href="./index.html">综合总览</a> <a class="nav-btn" onclick="toggleActive(this,1)" href="./floor.html">楼层分布</a><div class="nav-btn" onclick="toggleActive(this,2)">学生党员</div><div class="nav-btn" onclick="toggleActive(this)">楼委会信息</div></div><div class="center"><div class="logo-wrapper"><img src="./static/img/logo.png" alt=""></div><span>一站式学生社区（公寓）服务平台</span></div><div class="right"><div class="nav-btn" onclick="toggleActive(this,3)">入住导师</div><a class="nav-btn btn-active" onclick="toggleActive(this,4)" href="./table.html">公寓红黑榜</a><div class="nav-btn" onclick="toggleActive(this,5)">请假信息</div></div></div><div class="mini-title"></div><!-- 大屏区域 --><div class="bottom-content"><!-- 左侧 --><div class="table-box"><div class="title">公寓红榜</div><table style="width:100%;table-layout:fixed"><thead><tr class="table-title"><th>序号</th><th>宿舍号</th><th>登记日期</th><th>是否党员宿舍</th></tr></thead><tbody id="listbox1"><tr onclick="redirectToDetailPage(this)"><td>1</td><td>1-108</td><td>2023-09-02</td><td>是</td></tr><tr><td>2</td><td>1-108</td><td>2023-09-02</td><td>是</td></tr><tr><td>3</td><td>1-108</td><td>2023-09-02</td><td>是</td></tr><tr><td>4</td><td>1-108</td><td>2023-09-02</td><td>是</td></tr><tr><td>5</td><td>1-108</td><td>2023-09-02</td><td>是</td></tr></tbody></table></div><!-- 右侧 --><div class="table-box"><div class="title">公寓黑榜</div><table style="width:100%;table-layout:fixed"><thead><tr class="table-title"><th>序号</th><th>宿舍号</th><th>违规原因</th><th>登记日期</th><th>历史违规次数</th></tr></thead><tbody id="listbox1"><tr><td>1</td><td>1-108</td><td>抽烟</td><td>2023-09-02</td><td>1</td></tr><tr><td>2</td><td>1-108</td><td>喝酒</td><td>2023-09-02</td><td>2</td></tr><tr><td>3</td><td>1-108</td><td>打牌</td><td>2023-09-02</td><td>3</td></tr></tbody></table></div></div></div></div></body><script src="https://cdn.jsdelivr.net/npm/console-ban@5.0.0/dist/console-ban.min.js"></script><script>ConsoleBan.init(),ConsoleBan.init({redirect:"https://juejin.cn/user/4380097024360877"}),document.onkeydown=function(n){if(123===n.keyCode)return!1},document.addEventListener("contextmenu",function(n){n.preventDefault()})</script><script>// 首页导航点击事件
+    function toggleActive(element, btnIndex) {
+        const navBtns = document.querySelectorAll('.nav-btn');
+        navBtns.forEach(btn => {
+            if (btn === element) {
+                btn.classList.add('btn-active');
+            } else {
+                btn.classList.remove('btn-active');
+            }
+        });
+    }
+
+    function redirectToDetailPage(row) {
+        const dormNumber = row.cells[1].textContent; // 获取第二列的宿舍号
+        // 在此处构建跳转URL，将宿舍号作为参数传递给另一个页面
+        const targetURL = `room.html?dormNumber=${encodeURIComponent(dormNumber)}`;
+        window.location.href = targetURL;
+    }</script></html>
